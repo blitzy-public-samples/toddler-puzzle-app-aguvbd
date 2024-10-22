@@ -1,0 +1,62 @@
+{
+  // TypeScript configuration file for the web application.
+  // This configuration ensures consistent and efficient TypeScript development.
+  // Addressing requirement: "TypeScript Configuration"
+  // Location: "Technical Specification/Development Practices/Project Setup"
+
+  "compilerOptions": {
+    // Set the JavaScript language version to ES5 for compatibility with older browsers.
+    "target": "es5",
+    // Use CommonJS module system for interoperability.
+    "module": "commonjs",
+    // Enable all strict type-checking options for robust code.
+    "strict": true,
+    // Enable compatibility between CommonJS and ES Modules.
+    "esModuleInterop": true,
+    // Skip type checking of all declaration files (*.d.ts) for faster compilation.
+    "skipLibCheck": true,
+    // Ensure consistent casing in file names across the project.
+    "forceConsistentCasingInFileNames": true,
+    // Support JSX syntax in .tsx files for React components.
+    "jsx": "react"
+    // Using TypeScript compiler version 4.0.0
+  },
+  // Include all TypeScript files under the src directory.
+  "include": [
+    "src/**/*"
+  ],
+  // Exclude node_modules and dist directories from compilation.
+  "exclude": [
+    "node_modules",
+    "dist"
+  ],
+  // Specify individual files to include in the compilation.
+  "files": [
+    "src/web/src/mobile/hooks/useMobileOrientation.ts",
+    "src/web/src/mobile/styles/MobileStyles.ts",
+    "src/web/src/mobile/components/MobileSpecificComponent.tsx",
+    "src/web/src/mobile/index.tsx",
+    "src/web/src/components/Header.tsx",
+    "src/web/src/components/Footer.tsx",
+    "src/web/src/components/NotificationBadge.tsx",
+    "src/web/src/components/ParentalControlToggle.tsx",
+    "src/web/src/components/ProgressBar.tsx",
+    "src/web/src/components/PuzzlePiece.tsx",
+    "src/web/src/components/PuzzleCanvas.tsx",
+    "src/web/src/components/RewardAnimation.tsx",
+    "src/web/src/navigation/AuthStack.tsx",
+    "src/web/src/navigation/MainTabNavigator.tsx",
+    "src/web/src/navigation/AppNavigator.tsx",
+    "src/web/src/screens/SplashScreen.tsx",
+    "src/web/src/screens/AccessibilitySettingsScreen.tsx",
+    "src/web/src/screens/ParentalControlsScreen.tsx",
+    "src/web/src/screens/SettingsScreen.tsx",
+    "src/web/src/screens/HomeScreen.tsx",
+    "src/web/src/screens/PuzzleScreen.tsx",
+    "src/web/src/screens/DashboardScreen.tsx",
+    "src/web/src/screens/PurchaseScreen.tsx",
+    "src/web/src/screens/ActivityMonitorScreen.tsx",
+    "src/web/src/screens/RewardScreen.tsx",
+    "src/web/App.tsx"
+  ]
+}
