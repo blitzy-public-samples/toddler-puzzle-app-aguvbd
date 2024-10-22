@@ -1,0 +1,75 @@
+# CodeQL Analysis Workflow for the Toddler Puzzle App
+# Automates code scanning to identify vulnerabilities and ensure code quality using CodeQL.
+# Addresses Requirement: 'Code Quality and Security Analysis'
+# Location: Technical Specification/Development Practices/Code Quality
+
+name: CodeQL Analysis
+
+# Trigger the workflow on push and pull request events to 'main' and 'develop' branches
+# Ensures continuous integration and code quality checks on key branches
+on:
+  push:
+    branches: [ "main", "develop" ]
+  pull_request:
+    branches: [ "main", "develop" ]
+
+# Define the job to perform CodeQL analysis
+jobs:
+  codeql-analysis:
+    name: CodeQL Analysis
+    # Run the job on the latest Ubuntu environment
+    runs-on: ubuntu-latest
+
+    # Set permissions for the job to upload results to the security tab
+    permissions:
+      actions: read        # Allows reading other actions
+      contents: read       # Allows reading repository contents
+      security-events: write  # Allows writing security analysis results
+
+    # Steps to execute within the job
+    steps:
+      # Step 1: Checkout the repository code
+      # Uses GitHub's checkout action to clone the repository
+      # External Dependency: GitHub Actions 'actions/checkout@v3' (version 'v3')
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      # Step 2: Set up Node.js environment
+      # Uses setup-node action to install Node.js version 16.x
+      # External Dependency: GitHub Actions 'actions/setup-node@v3' (version 'v3')
+      # Addresses global Node.js version requirement for consistency across CI processes
+      # Internal Dependency: Shares environment settings as configured in 'ci.yml'
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16.x'  # Global node_version specified in technical specifications
+
+      # Step 3: Initialize CodeQL
+      # Uses GitHub's CodeQL action to prepare for analysis
+      # External Dependency: CodeQL 'github/codeql-action/init@v2' (version 'v2')
+      # Configures CodeQL for JavaScript and TypeScript analysis as per the codebase languages
+      - name: Initialize CodeQL
+        uses: github/codeql-action/init@v2
+        with:
+          languages: 'javascript, typescript'
+
+      # Step 4: Run CodeQL analysis
+      # Performs the analysis and uploads results to GitHub Security tab
+      # External Dependency: CodeQL 'github/codeql-action/analyze@v2' (version 'v2')
+      # Addresses the need to automate code scanning for vulnerabilities
+      - name: Perform CodeQL Analysis
+        uses: github/codeql-action/analyze@v2
+
+# Notes:
+# - This workflow depends on environment settings and secrets defined in 'ci.yml' and 'cd.yml' for consistency
+# - Internal Dependencies:
+#   - '.github/workflows/ci.yml': Shares environment settings and secrets for CI processes
+#   - '.github/workflows/cd.yml': Shares deployment secrets and configurations
+# - External Dependencies:
+#   - GitHub Actions (actions), Version: 'v3' (latest)
+#   - CodeQL (github/codeql-action), Version: 'v2' (latest)
+
+# Requirements Addressed:
+# - Name: 'Code Quality and Security Analysis'
+# - Description: Automate code scanning to identify vulnerabilities and ensure code quality using CodeQL.
+# - Location: Technical Specification/Development Practices/Code Quality
