@@ -1,0 +1,96 @@
+<!-- 
+    File: splash_screen.xml
+    Location: src/web/android/app/src/main/res/drawable/splash_screen.xml
+
+    Description:
+    This XML layout file defines the splash screen for the Toddler Puzzle App's Android version.
+    It provides a visually appealing introduction to the app when launched by displaying the app logo and a welcome message.
+
+    Requirements Addressed:
+    - User Interface (Technical Requirements/Feature 6: User Interface)
+        - TR-6.1: Utilize responsive design principles to ensure compatibility across various device screen sizes.
+          (Refer to Technical Requirements/Feature 6, Requirement ID TR-6.1)
+        - TR-6.2: Implement large, easily tappable buttons and icons to facilitate ease of use for toddlers.
+          (Refer to Technical Requirements/Feature 6, Requirement ID TR-6.2)
+        - TR-6.3: Incorporate vibrant color schemes and engaging animations to maintain user interest.
+          (Refer to Technical Requirements/Feature 6, Requirement ID TR-6.3)
+        - TR-6.5: Develop accessibility features such as high-contrast modes and voice instructions.
+          (Refer to Technical Requirements/Feature 6, Requirement ID TR-6.5)
+
+    Dependencies:
+    - Internal:
+        - strings.xml (src/web/android/app/src/main/res/values/strings.xml)
+            Provides string resources used for content descriptions and text display.
+        - AndroidManifest.xml (src/web/android/app/src/main/AndroidManifest.xml)
+            Defines the splash screen activity and its configurations.
+        - MainActivity.kt (src/web/android/app/src/main/java/com/toddlerpuzzleapp/MainActivity.kt)
+            Handles the transition from the splash screen to the main application interface.
+        - MainApplication.kt (src/web/android/app/src/main/java/com/toddlerpuzzleapp/MainApplication.kt)
+            Initializes application-wide configurations that may affect the splash screen.
+
+    Note: For further context, refer to the Technical Specifications document under "Feature 6: User Interface".
+-->
+
+<!-- Root RelativeLayout that fills the parent screen -->
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/splash_screen_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FF5733" <!-- 
+        Background color set to a vibrant orange (#FF5733) to attract toddlers' attention.
+        Addresses TR-6.3: Incorporate vibrant color schemes.
+    -->
+    android:gravity="center"> <!-- 
+        Centers child elements within the layout.
+        Supports TR-6.1: Ensure compatibility across various device screen sizes by centering content.
+    -->
+
+    <!-- App Logo ImageView -->
+    <ImageView
+        android:id="@+id/logo_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/logo" <!-- 
+            Displays the app logo from drawable resources.
+            Supports TR-6.2: Large, easily recognizable icon for toddlers.
+        -->
+        android:contentDescription="@string/app_name" <!-- 
+            Provides a content description for accessibility services.
+            Uses string resource from strings.xml (internal dependency).
+            Addresses TR-6.5: Develop accessibility features.
+        -->
+        android:layout_centerInParent="true"/> <!-- 
+            Centers the logo within the parent layout.
+            Enhances visual appeal and ensures consistency across devices (TR-6.1).
+        -->
+
+    <!-- Welcome Message TextView -->
+    <TextView
+        android:id="@+id/welcome_message"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/welcome_message" <!-- 
+            Displays a welcome message to the user.
+            Pulls text from strings.xml (internal dependency).
+        -->
+        android:textSize="24sp" <!-- 
+            Sets large text size for visibility to toddlers.
+            Supports TR-6.2: Implement large text for ease of use.
+        -->
+        android:textColor="#FFFFFF" <!-- 
+            White text color for high contrast against the orange background.
+            Addresses TR-6.5: High-contrast mode for better accessibility.
+        -->
+        android:layout_below="@id/logo_image" <!-- 
+            Positions the welcome message below the logo image.
+        -->
+        android:layout_marginTop="16dp" <!-- 
+            Adds spacing between the logo and the welcome message for visual clarity.
+        -->
+        android:layout_centerHorizontal="true"/> <!-- 
+            Centers the text horizontally within the layout.
+            Ensures consistent alignment across different screen sizes (TR-6.1).
+        -->
+
+</RelativeLayout>
