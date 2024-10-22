@@ -1,0 +1,52 @@
+// File: src/web/android/build.gradle
+// Description: The project-level Gradle build script for the Android application.
+// Addresses Requirement: Android Project Configuration
+// Location: Technical Specification/Development Practices/Android
+// Description: Ensure that the Android project is configured correctly for building,
+// including module inclusion and project-level settings.
+
+buildscript {
+    // Repositories for build script dependencies.
+    // These repositories are required to resolve the Android Gradle plugin and Kotlin Gradle plugin.
+    // Repositories: google(), mavenCentral()
+    repositories {
+        google() // Google's Maven repository.
+        mavenCentral() // Central repository for libraries.
+    }
+    dependencies {
+        // Android Gradle plugin for building Android applications.
+        // Version: 7.0.0
+        // External Dependency: com.android.tools.build:gradle
+        classpath 'com.android.tools.build:gradle:7.0.0' // com.android.tools.build:gradle v7.0.0
+
+        // Kotlin Gradle plugin for Kotlin-based Android projects.
+        // Version: 1.5.0
+        // External Dependency: org.jetbrains.kotlin:kotlin-gradle-plugin
+        classpath 'org.jetbrains.kotlin:kotlin-gradle-plugin:1.5.0' // org.jetbrains.kotlin:kotlin-gradle-plugin v1.5.0
+
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files.
+    }
+}
+
+allprojects {
+    // Repositories for all projects.
+    // Ensures all modules use the same repositories to resolve dependencies.
+    // Repositories: google(), mavenCentral()
+    repositories {
+        google() // Google's Maven repository.
+        mavenCentral() // Central repository for libraries.
+    }
+}
+
+// Task to clean the build directory.
+// Helps in cleaning the project by removing all build outputs.
+// This task can be invoked using './gradlew clean'.
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
+
+// Internal Dependencies:
+// - Module-level build.gradle (src/web/android/app/build.gradle): Defines specific configurations for the Android app module.
+// - settings.gradle (src/web/android/settings.gradle): Includes module settings and could affect the build configuration.
+// - gradle.properties (src/web/android/gradle.properties): Contains properties that affect the build process, such as version codes and custom flags.
