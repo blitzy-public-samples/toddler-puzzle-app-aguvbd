@@ -1,0 +1,18 @@
+# AI Integration Module Dependencies
+
+# Requirement Addressed: Dependency Management
+# Location: TECHNICAL REQUIREMENTS/Feature 2: AI-Generated Images
+# Description: Ensure all necessary Python libraries are available for AI image generation and content moderation.
+
+# Dependency: requests==2.25.1
+# Purpose: Make HTTP requests to the AI image generation API (e.g., DALL-E API).
+# Requirements Addressed:
+# - TR-2.1: Establish a reliable connection with the DALL-E API for image generation.
+# - TR-2.5: Handle API rate limiting and implement retry logic for failed requests.
+requests==2.25.1
+
+# Dependency: Pillow==8.2.0
+# Purpose: Provide image processing capabilities such as resizing and format conversion.
+# Requirements Addressed:
+# - TR-2.4: Ensure image formats and resolutions are optimized for mobile devices.
+Pillow==8.2.0
