@@ -1,0 +1,40 @@
+// Prettier configuration for the admin interface of the Toddler Puzzle App.
+// Prettier version: 2.3.2
+
+// This configuration file ensures that the codebase adheres to a consistent style,
+// improving readability and maintainability across the project.
+// Requirements addressed:
+// - Name: Code Formatting Consistency
+//   Location: Technical Specification/System Components/Development Standards
+//   Description: Ensures that the codebase adheres to a consistent style, improving readability and maintainability.
+
+module.exports = {
+  // Specify the line length that the printer will wrap on.
+  printWidth: 80,
+
+  // Specify the number of spaces per indentation-level.
+  tabWidth: 2,
+
+  // Indent lines with spaces instead of tabs for consistent formatting.
+  useTabs: false,
+
+  // Print semicolons at the ends of statements for clarity.
+  semi: true,
+
+  // Use single quotes instead of double quotes for strings.
+  singleQuote: true,
+
+  // Print trailing commas wherever possible when multi-line.
+  trailingComma: 'es5',
+
+  // Print spaces between brackets in object literals for better readability.
+  bracketSpacing: true,
+
+  // Put the closing `>` of a JSX element
+  // on a new line for better readability in JSX.
+  jsxBracketSameLine: false,
+
+  // Omit parentheses when arrow functions have a single parameter
+  // for cleaner code in simple functions.
+  arrowParens: 'avoid',
+};
