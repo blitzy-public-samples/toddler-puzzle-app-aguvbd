@@ -1,0 +1,112 @@
+{
+  // Name of the package
+  "name": "toddler-puzzle-app-backend",
+  // Version of the package
+  "version": "1.0.0",
+  // Description of the package
+  // Requirements Addressed:
+  // - Backend Dependency Management
+  //   Location: SYSTEM ARCHITECTURE/Backend Server
+  //   Description: Ensures all necessary libraries and tools are available for the backend services.
+  "description": "This file defines the dependencies, scripts, and configurations for the backend services of the Toddler Puzzle App. It ensures that all necessary libraries and tools are available for development, testing, and production environments.",
+  // Main entry point of the application
+  "main": "dist/index.js",
+  // Type definitions entry point
+  "types": "dist/index.d.ts",
+  // Scripts to manage lifecycle of the application
+  "scripts": {
+    // Start the application in production mode
+    // Relevant for deployment and ensuring the app runs correctly in production
+    "start": "node dist/index.js",
+    // Build the TypeScript code into JavaScript
+    // Addresses code compilation for deployment
+    "build": "tsc",
+    // Run the test suite using Jest
+    // Requirements Addressed:
+    // - TR-11.6: Conduct automated testing to ensure the quality and stability of each update before release.
+    //   Location: TECHNICAL REQUIREMENTS > Feature 11: Performance Optimization
+    "test": "jest",
+    // Lint the TypeScript code using ESLint
+    // Ensures code quality and adherence to coding standards
+    "lint": "eslint 'src/**/*.ts'",
+    // Format the code using Prettier
+    // Enforces consistent code styling across the codebase
+    "format": "prettier --write 'src/**/*.ts'"
+  },
+  // Dependencies required for the application to run
+  "dependencies": {
+    // Express framework for building the API
+    // Version: 4.17.1
+    // Purpose: Provides HTTP utilities for building the API
+    // Requirements Addressed:
+    // - TR-2.1: Establish a reliable connection with the DALL-E API for image generation.
+    //   Location: TECHNICAL REQUIREMENTS > Feature 2: AI-Generated Images
+    "express": "4.17.1",
+    // Sequelize ORM for interacting with PostgreSQL
+    // Version: 6.6.5
+    // Purpose: ORM for interacting with the PostgreSQL database
+    // Requirements Addressed:
+    // - TR-4.1: Implement local storage solutions to save downloaded puzzles.
+    //   Location: TECHNICAL REQUIREMENTS > Feature 4: Offline Playability
+    "sequelize": "6.6.5",
+    // JSON Web Token for authentication
+    // Version: 8.5.1
+    // Purpose: To sign and verify JWT tokens for user authentication
+    // Requirements Addressed:
+    // - TR-5.1: Develop a secure authentication system for parents to access control settings.
+    //   Location: TECHNICAL REQUIREMENTS > Feature 5: Parental Controls
+    "jsonwebtoken": "8.5.1",
+    // Axios for making HTTP requests
+    // Version: 0.21.1
+    // Purpose: To make HTTP requests to external AI image generation APIs
+    // Requirements Addressed:
+    // - TR-2.1: Establish a reliable connection with the DALL-E API for image generation.
+    //   Location: TECHNICAL REQUIREMENTS > Feature 2: AI-Generated Images
+    "axios": "0.21.1",
+    // Stripe SDK for payment processing
+    // Version: 8.174.0
+    // Purpose: Handles secure payment processing and transactions
+    // Requirements Addressed:
+    // - TR-3.1: Integrate with Stripe for processing one-time payments.
+    //   Location: TECHNICAL REQUIREMENTS > Feature 3: One-Time Payment Model
+    "stripe": "8.174.0",
+    // Express rate limiting middleware
+    // Version: 5.2.6
+    // Purpose: To provide rate limiting middleware for Express applications
+    // Requirements Addressed:
+    // - TR-2.5: Handle API rate limiting and implement retry logic for failed requests.
+    //   Location: TECHNICAL REQUIREMENTS > Feature 2: AI-Generated Images
+    "express-rate-limit": "5.2.6"
+  },
+  // Development dependencies used during development and testing
+  "devDependencies": {
+    // TypeScript compiler
+    // Version: ^4.0.0
+    // Purpose: TypeScript compiler for transpiling TypeScript code to JavaScript
+    "typescript": "^4.0.0",
+    // ts-jest transformer
+    // Version: ^27.0.0
+    // Purpose: A Jest transformer for TypeScript, allowing TypeScript files to be tested
+    "ts-jest": "^27.0.0",
+    // Jest testing framework
+    // Version: ^27.0.0
+    // Purpose: Provides a testing framework for running unit and integration tests
+    // Requirements Addressed:
+    // - TR-11.6: Conduct automated testing to ensure the quality and stability of each update before release.
+    //   Location: TECHNICAL REQUIREMENTS > Feature 11: Performance Optimization
+    "jest": "^27.0.0",
+    // ESLint for linting code
+    // Version: ^8.0.0
+    // Purpose: Provides linting capabilities for JavaScript and TypeScript code
+    "eslint": "^8.0.0",
+    // Prettier for code formatting
+    // Version: ^2.0.0
+    // Purpose: Provides automatic code formatting to enforce consistent style across the codebase
+    "prettier": "^2.0.0"
+  },
+  // Node.js and npm engine requirements
+  "engines": {
+    "node": ">=14.0.0",
+    "npm": ">=6.0.0"
+  }
+}
