@@ -1,0 +1,48 @@
+# .gitignore for the Toddler Puzzle App
+# Description: Ensures that unnecessary and sensitive files are not tracked by Git, maintaining a clean and secure repository.
+# Requirement Addressed: Version Control Hygiene
+# Technical Specification Location: Technical Specification/Development Practices/Version Control
+
+# Ignore Node.js dependencies
+node_modules/
+
+# Ignore build output directories
+dist/
+build/
+
+# Ignore log files
+*.log
+
+# Ignore environment variable files
+.env
+
+# Ignore test coverage reports
+coverage/
+
+# Ignore TypeScript build info files
+*.tsbuildinfo
+
+# Ignore macOS system files
+*.DS_Store
+
+# Ignore Visual Studio Code workspace settings
+.vscode/
+
+# Ignore IntelliJ IDEA project settings and module files
+*.idea/
+*.iml
+
+# Ignore Python cache directories
+__pycache__/
+# Ignore Python compiled files
+*.pyc
+
+# Ignore Terraform working directories
+.terraform/
+
+# Ignore Terraform state files
+terraform.tfstate
+terraform.tfstate.backup
+
+# Ignore Terraform variable definition files
+*.tfvars
