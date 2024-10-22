@@ -1,0 +1,10 @@
+{
+  "DB_HOST": "localhost",
+  "DB_PORT": 5432,
+  "DB_NAME": "toddler_puzzle_app",
+  "DB_USER": "app_user",
+  "DB_PASSWORD": "securepassword",
+  "POOL_MAX": 10,
+  "POOL_MIN": 0,
+  "POOL_IDLE_TIMEOUT": 30000
+}
