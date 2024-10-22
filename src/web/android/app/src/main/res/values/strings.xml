@@ -1,0 +1,144 @@
+<!--
+    strings.xml
+    Description: Contains string resources used throughout the Android version of the Toddler Puzzle App.
+    These resources include UI text, labels, and messages that are displayed to the user.
+
+    Requirements Addressed:
+    - User Interface (Technical Requirements/Feature 6: User Interface)
+      Description: Design and develop an intuitive and visually appealing user interface tailored for toddlers, featuring large icons, bright colors, and simple navigation.
+
+    Dependencies:
+    - MainActivity.kt: Uses string resources for UI elements.
+    - MainApplication.kt: May utilize string resources for initialization messages.
+    - AndroidManifest.xml: References string resources for application name and permissions.
+-->
+
+<resources>
+    <!-- App name displayed in the launcher and application -->
+    <!-- Requirement Addressed: User Interface (Technical Requirements/Feature 6: User Interface) -->
+    <string name="app_name">Toddler Puzzle App</string>
+
+    <!-- Welcome message displayed on the home screen -->
+    <!-- Requirement Addressed: User Interface (Technical Requirements/Feature 6: User Interface) -->
+    <string name="welcome_message">Welcome to the Toddler Puzzle App!</string>
+
+    <!-- Message displayed when the app is offline -->
+    <!-- Requirement Addressed: User Interface (Technical Requirements/Feature 6: User Interface) -->
+    <string name="offline_mode">You are currently offline. Some features may not be available.</string>
+
+    <!-- Label for the Start button on the home screen -->
+    <!-- Requirement Addressed: User Interface (Technical Requirements/Feature 6: User Interface) -->
+    <string name="start_button">Start</string>
+
+    <!-- Label for the Exit button in the app -->
+    <!-- Requirement Addressed: User Interface (Technical Requirements/Feature 6: User Interface) -->
+    <string name="exit_button">Exit</string>
+
+    <!-- Title for the Parental Controls screen -->
+    <!-- Requirement Addressed: Parental Controls (Technical Requirements/Feature 5: Parental Controls) -->
+    <string name="parental_controls_title">Parental Controls</string>
+
+    <!-- Label for the Settings button in the app -->
+    <!-- Requirement Addressed: Parental Controls (Technical Requirements/Feature 5: Parental Controls) -->
+    <string name="settings_button">Settings</string>
+
+    <!-- Description for usage limits in Parental Controls -->
+    <!-- Requirement Addressed: Parental Controls (Technical Requirements/Feature 5: Parental Controls) -->
+    <string name="usage_limits_description">Set daily usage limits for your child.</string>
+
+    <!-- Message displayed when a purchase is successful -->
+    <!-- Requirement Addressed: One-Time Payment Model (Technical Requirements/Feature 3: One-Time Payment Model) -->
+    <string name="purchase_successful_message">Purchase successful! Additional puzzles unlocked.</string>
+
+    <!-- Message displayed when a purchase fails -->
+    <!-- Requirement Addressed: One-Time Payment Model (Technical Requirements/Feature 3: One-Time Payment Model) -->
+    <string name="purchase_failed_message">Purchase failed. Please try again.</string>
+
+    <!-- Title for the Accessibility Settings screen -->
+    <!-- Requirement Addressed: User Interface (Technical Requirements/Feature 6: User Interface) -->
+    <string name="accessibility_settings_title">Accessibility Settings</string>
+
+    <!-- Label for High Contrast Mode toggle -->
+    <!-- Requirement Addressed: User Interface (Technical Requirements/Feature 6: User Interface) -->
+    <string name="high_contrast_mode_label">High Contrast Mode</string>
+
+    <!-- Label for Voice Instructions toggle -->
+    <!-- Requirement Addressed: User Interface (Technical Requirements/Feature 6: User Interface) -->
+    <string name="voice_instructions_label">Voice Instructions</string>
+
+    <!-- Confirmation dialog title when exiting the app -->
+    <!-- Requirement Addressed: User Interface (Technical Requirements/Feature 6: User Interface) -->
+    <string name="exit_confirmation_title">Exit App</string>
+
+    <!-- Confirmation dialog message when exiting the app -->
+    <!-- Requirement Addressed: User Interface (Technical Requirements/Feature 6: User Interface) -->
+    <string name="exit_confirmation_message">Are you sure you want to exit?</string>
+
+    <!-- Label for the Confirm button in dialogs -->
+    <!-- Requirement Addressed: User Interface (Technical Requirements/Feature 6: User Interface) -->
+    <string name="confirm_button">Confirm</string>
+
+    <!-- Label for the Cancel button in dialogs -->
+    <!-- Requirement Addressed: User Interface (Technical Requirements/Feature 6: User Interface) -->
+    <string name="cancel_button">Cancel</string>
+
+    <!-- Title for the puzzle difficulty selection screen -->
+    <!-- Requirement Addressed: Puzzle Difficulty Levels (Technical Requirements/Feature 1: Puzzle Difficulty Levels) -->
+    <string name="select_difficulty_title">Select Puzzle Difficulty</string>
+
+    <!-- Label for the 4-piece puzzle option -->
+    <!-- Requirement Addressed: Puzzle Difficulty Levels (Technical Requirements/Feature 1: Puzzle Difficulty Levels) -->
+    <string name="difficulty_starter">Starter (4 pieces)</string>
+
+    <!-- Label for the 9-piece puzzle option -->
+    <!-- Requirement Addressed: Puzzle Difficulty Levels (Technical Requirements/Feature 1: Puzzle Difficulty Levels) -->
+    <string name="difficulty_advanced">Advanced (9 pieces)</string>
+
+    <!-- Label for the 16-piece puzzle option -->
+    <!-- Requirement Addressed: Puzzle Difficulty Levels (Technical Requirements/Feature 1: Puzzle Difficulty Levels) -->
+    <string name="difficulty_genius">Genius (16 pieces)</string>
+
+    <!-- Message displayed when syncing data -->
+    <!-- Requirement Addressed: Data Synchronization (Technical Requirements/Feature 10: Data Synchronization) -->
+    <string name="syncing_data_message">Syncing data...</string>
+
+    <!-- Error message for failed data synchronization -->
+    <!-- Requirement Addressed: Data Synchronization (Technical Requirements/Feature 10: Data Synchronization) -->
+    <string name="sync_failed_message">Data sync failed. Will retry when online.</string>
+
+    <!-- Title for the Update Available dialog -->
+    <!-- Requirement Addressed: Regular Updates (Technical Requirements/Feature 8: Regular Updates) -->
+    <string name="update_available_title">Update Available</string>
+
+    <!-- Message for the Update Available dialog -->
+    <!-- Requirement Addressed: Regular Updates (Technical Requirements/Feature 8: Regular Updates) -->
+    <string name="update_available_message">A new version is available with exciting new puzzles! Update now for more fun.</string>
+
+    <!-- Label for the Update Now button -->
+    <!-- Requirement Addressed: Regular Updates (Technical Requirements/Feature 8: Regular Updates) -->
+    <string name="update_now_button">Update Now</string>
+
+    <!-- Label for the Later button in update dialog -->
+    <!-- Requirement Addressed: Regular Updates (Technical Requirements/Feature 8: Regular Updates) -->
+    <string name="update_later_button">Later</string>
+
+    <!-- Message displayed when there are no more puzzles available -->
+    <!-- Requirement Addressed: One-Time Payment Model (Technical Requirements/Feature 3: One-Time Payment Model) -->
+    <string name="no_more_puzzles_message">No more puzzles available. Purchase additional puzzles for more fun!</string>
+
+    <!-- Label for the Purchase button -->
+    <!-- Requirement Addressed: One-Time Payment Model (Technical Requirements/Feature 3: One-Time Payment Model) -->
+    <string name="purchase_button">Purchase</string>
+
+    <!-- Title for the Rewards Screen -->
+    <!-- Requirement Addressed: User Interface (Technical Requirements/Feature 6: User Interface) -->
+    <string name="rewards_screen_title">Congratulations!</string>
+
+    <!-- Message displayed on the Rewards Screen after completing a puzzle -->
+    <!-- Requirement Addressed: User Interface (Technical Requirements/Feature 6: User Interface) -->
+    <string name="puzzle_completed_message">You completed the puzzle!</string>
+
+    <!-- Label for the Next Puzzle button -->
+    <!-- Requirement Addressed: User Interface (Technical Requirements/Feature 6: User Interface) -->
+    <string name="next_puzzle_button">Next Puzzle</string>
+</resources>
