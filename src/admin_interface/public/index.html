@@ -1,0 +1,57 @@
+<!--
+    File: index.html
+    Description: Serves as the main entry point for the admin interface of the Toddler Puzzle App.
+    Provides the foundational HTML structure and includes references to stylesheets, scripts, and other assets necessary for rendering the React application.
+    Addresses:
+        - Application Initialization (Technical Specification/System Components/Application Setup)
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--
+        Meta charset set to UTF-8 to support a wide range of characters.
+        Requirement Addressed:
+            - Provides foundational HTML structure (Technical Specification/System Components/Application Setup)
+    -->
+    <meta charset="UTF-8">
+
+    <!--
+        Viewport meta tag to ensure responsive design on various devices.
+        Requirement Addressed:
+            - Ensures compatibility across various device screen sizes (TR-6.1 in Technical Requirements)
+    -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--
+        Title of the Admin Interface.
+    -->
+    <title>Toddler Puzzle Admin Interface</title>
+
+    <!--
+        Link to the favicon representing the application in browser tabs and bookmarks.
+        Internal Dependency:
+            - favicon.ico located at src/admin_interface/public/favicon.ico
+    -->
+    <link rel="icon" href="favicon.ico">
+</head>
+<body>
+    <!--
+        Root div where the React application will be mounted.
+    -->
+    <div id="root"></div>
+
+    <!--
+        Main JavaScript module that bootstraps the React application.
+        Internal Dependencies:
+            - App component (src/admin_interface/src/App.tsx): Integrates various pages and services.
+            - GlobalStyles (src/admin_interface/src/styles/GlobalStyles.ts): Ensures consistent styling across the application.
+        External Dependencies:
+            - React (version 17.0.2): Provides the base library for building the application.
+            - ReactDOM (version 17.0.2): Renders React components to the DOM.
+        Requirement Addressed:
+            - Includes necessary scripts to initialize the application (Technical Specification/System Components/Application Setup)
+    -->
+    <script type="module" src="../src/index.tsx"></script>
+</body>
+</html>
