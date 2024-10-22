@@ -1,0 +1,59 @@
+{
+  // The package.json file for the Toddler Puzzle App's web interface, managing project dependencies, scripts, and metadata to ensure consistent development, testing, and deployment.
+  // Requirements Addressed:
+  // - Dependency Management (Technical Specification/Development Practices/Project Setup)
+  "name": "toddler-puzzle-app-web",
+  "version": "1.0.0", // Global version of the application
+  "description": "The package.json file for the Toddler Puzzle App's web interface, managing project dependencies, scripts, and metadata to ensure consistent development, testing, and deployment.",
+  "main": "index.js", // Entry point of the application
+  "scripts": {
+    // Scripts to manage development, testing, and deployment processes
+    "start": "react-scripts start", // Starts the development server
+    "build": "react-scripts build", // Builds the app for production
+    "test": "jest", // Runs all tests using Jest
+    "lint": "eslint src/**/*.ts src/**/*.tsx", // Lints all TypeScript and TSX files
+    "format": "prettier --write src/**/*.ts src/**/*.tsx" // Formats code using Prettier
+  },
+  "dependencies": {
+    // Internal dependencies for rendering main application components
+    "App": "file:src/web/App.tsx", // Renders the main application component
+    "Header": "file:src/web/src/components/Header.tsx", // Provides a consistent header across the app
+    "Footer": "file:src/web/src/components/Footer.tsx", // Provides a consistent footer with navigation links
+    "NotificationBadge": "file:src/web/src/components/NotificationBadge.tsx", // Displays notifications for updates or new content
+    "ParentalControlToggle": "file:src/web/src/components/ParentalControlToggle.tsx", // Allows parents to manage parental control settings
+    "ProgressBar": "file:src/web/src/components/ProgressBar.tsx", // Represents user progress through available puzzles
+    "PuzzlePiece": "file:src/web/src/components/PuzzlePiece.tsx", // Renders individual puzzle pieces and handles interactions
+    "PuzzleCanvas": "file:src/web/src/components/PuzzleCanvas.tsx", // Manages the layout and interaction of puzzle pieces
+    "RewardAnimation": "file:src/web/src/components/RewardAnimation.tsx", // Displays animations upon puzzle completion
+
+    // External dependencies from third-party libraries
+    "react": "17.0.2", // Version 17.0.2 - To create and manage component state and lifecycle (TR-6: User Interface)
+    "react-dom": "17.0.2" // Version 17.0.2 - To render React components into the DOM (TR-6: User Interface)
+  },
+  "devDependencies": {
+    // TypeScript compiler and language services
+    "typescript": "4.0.0", // Provides TypeScript support for type safety and development efficiency
+
+    // Testing frameworks and tools
+    "jest": "27.0.0", // Provides the core testing framework (TR-8.6: Conduct automated testing)
+    "ts-jest": "27.0.0", // Allows Jest to transpile TypeScript files
+    "babel-jest": "27.0.0", // Enables Jest to transpile JavaScript files using Babel
+
+    // Linting tools to ensure code quality and consistency
+    "eslint": "8.0.0", // Core linting functionality for JavaScript and TypeScript files
+    "eslint-plugin-react": "7.0.0", // Adds linting rules for React applications
+    "eslint-plugin-import": "2.0.0", // Ensures proper import/export syntax and avoids missing files
+    "eslint-config-airbnb": "19.0.0", // Airbnb's JavaScript style guide for ESLint
+
+    // Code formatting tool
+    "prettier": "2.0.0", // Automated code formatting to maintain consistent code style
+
+    // Babel core and presets for transpiling code
+    "babel-core": "7.0.0", // Core Babel functionality for transpiling JavaScript
+    "babel-preset-env": "7.0.0", // Allows Babel to transpile modern JavaScript for older environments
+    "babel-preset-react": "7.0.0", // Enables Babel to transpile React JSX syntax
+
+    // Metro bundler for React Native applications
+    "metro": "0.66.2" // Provides core bundling functionality (Note: Included as per project specification)
+  }
+}
