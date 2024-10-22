@@ -1,0 +1,64 @@
+# Podfile for ToddlerPuzzleApp
+# This Podfile specifies the platform and dependencies for the iOS version of the Toddler Puzzle App.
+# Requirements Addressed:
+# - Ensures the app initializes with the correct UI settings and configurations for a seamless user experience.
+#   Location: Technical Specification/Feature 6: User Interface (TR-6.1 to TR-6.6)
+
+# Specify the platform and minimum iOS version (TR-6.1)
+platform :ios, '10.0'
+
+# Include React Native's Cocoapods helpers
+require_relative '../node_modules/@react-native-community/cli-platform-ios/native_modules'
+
+# Define the target for the Toddler Puzzle App
+target 'ToddlerPuzzleApp' do
+  # Configure the project to use native modules provided by React Native
+  config = use_native_modules!
+
+  # Integrate React Native framework into the project
+  use_react_native!(
+    :path => config["reactNativePath"]
+  )
+
+  # Enable Flipper for debugging and performance monitoring
+  # Flipper (Version 0.125.0)
+  use_flipper!({ 'Flipper' => '0.125.0' }) # Third-party dependency version specified
+
+  # Post-installation script to finalize configurations
+  post_install do |installer|
+    # Adjustments and fixes applied after pods are installed
+    react_native_post_install(installer)
+  end
+
+  # Internal Dependencies:
+  # - AppDelegate.swift
+  #   Purpose: Manages the app's lifecycle events and coordinates the app's interaction with the system.
+  #   Location in project: src/web/ios/ToddlerPuzzleApp/AppDelegate.swift
+  # - Info.plist
+  #   Purpose: Provides configuration settings for the app, such as bundle identifier and permissions.
+  #   Location in project: src/web/ios/ToddlerPuzzleApp/Info.plist
+
+  # External Dependencies:
+  # - UIKit (Version: latest)
+  #   Purpose: Provides the necessary interfaces for building and managing the app's UI.
+  #   Note: Imported directly within Swift files, as it's a standard iOS framework.
+  # - Foundation (Version: latest)
+  #   Purpose: Provides essential data types, collections, and operating-system services.
+  #   Note: Imported directly within Swift files, as it's a standard iOS framework.
+
+  # Assets Included:
+  # - CustomFont.ttf
+  #   Purpose: To provide a unique and consistent typography style across the app's user interface.
+  #   Location: src/web/src/assets/fonts/CustomFont.ttf
+  # - ClapSound.mp3
+  #   Purpose: To provide a clapping sound effect for positive reinforcement and feedback.
+  #   Location: src/web/src/assets/sounds/ClapSound.mp3
+  # - RewardAnimation.mp4
+  #   Purpose: To provide visual feedback and encouragement upon completing puzzles.
+  #   Location: src/web/src/assets/videos/RewardAnimation.mp4
+
+  # Note:
+  # As per current project requirements, no additional third-party CocoaPods dependencies are specified.
+  # Should any native modules or libraries be required in the future, they should be added here.
+
+end
