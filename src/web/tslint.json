@@ -1,0 +1,80 @@
+{
+  // TSLint configuration for the web application
+  // Requirements Addressed:
+  // - Name: TypeScript Linting
+  // - Location: Technical Specification/Development Practices/Code Quality
+  // - Description: Ensure that TypeScript code adheres to defined style guides and quality standards, facilitating maintainability and reducing errors.
+
+  // Specify the default severity level for lint warnings and errors
+  // This helps in maintaining consistent error reporting across the project
+  "defaultSeverity": "error",
+
+  // Extend the recommended TSLint rules and disable conflicting rules with Prettier
+  // Dependencies:
+  // - tslint v6.0.0: Provides the core linting functionality for TypeScript files.
+  // - tslint-config-prettier: Disables TSLint rules that conflict with Prettier.
+  "extends": [
+    "tslint:recommended",        // Base set of recommended rules
+    "tslint-config-prettier"     // Ensure compatibility with Prettier formatting
+  ],
+
+  // Linter options to exclude specific directories from linting
+  // Excludes node_modules and dist directories to improve performance
+  "linterOptions": {
+    "exclude": [
+      "node_modules",   // Exclude third-party libraries
+      "dist"            // Exclude build output files
+    ]
+  },
+
+  // Custom linting rules to enforce code quality and consistency
+  "rules": {
+    // Disallow the use of console in the code to maintain clean output
+    // Rule: no-console
+    // Severity set to warning to alert developers without failing the build
+    // Requirement Location: Technical Specification/Development Practices/Code Quality
+    "no-console": {
+      "severity": "warning"
+    },
+
+    // Enforce consistent use of single quotes
+    // Rule: quotemark
+    // Options set to 'single' to maintain code style consistency
+    // Requirement Location: Technical Specification/Development Practices/Code Quality
+    "quotemark": [
+      true,
+      "single"
+    ],
+
+    // Enforce the use of semicolons at the end of statements
+    // Rule: semicolon
+    // Options set to 'always' to prevent potential ASI pitfalls
+    // Requirement Location: Technical Specification/Development Practices/Code Quality
+    "semicolon": [
+      true,
+      "always"
+    ],
+
+    // Require or disallow trailing commas in array and object literals
+    // Rule: trailing-comma
+    // Options configured to improve version control diffs and code readability
+    // Requirement Location: Technical Specification/Development Practices/Code Quality
+    "trailing-comma": [
+      true,
+      {
+        "multiline": "always",    // Always require trailing commas in multiline structures
+        "singleline": "never"     // Disallow trailing commas in single-line structures
+      }
+    ],
+
+    // Enforce consistent indentation using spaces
+    // Rule: indent
+    // Options set to use 2 spaces for indentation to enhance readability
+    // Requirement Location: Technical Specification/Development Practices/Code Quality
+    "indent": [
+      true,
+      "spaces",
+      2
+    ]
+  }
+}
