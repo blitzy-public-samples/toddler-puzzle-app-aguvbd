@@ -1,0 +1,26 @@
+{
+  // Production-specific configuration settings for the backend server
+  // Requirements Addressed:
+  // - Provides production-specific settings for database connections, server ports, secure keys, and API endpoints.
+  //   Location in Documentation: SYSTEM ARCHITECTURE/Backend Server
+
+  // PORT: Sets the server port to 80 for production use
+  // Relevant Requirements: TR-4.4 (Develop mechanisms to detect offline status and adjust app functionality accordingly)
+  "PORT": 80,
+
+  // DATABASE_URL: Secure connection string for the production PostgreSQL database
+  // Relevant Requirements: TR-2.4 (Ensure image formats and resolutions are optimized for mobile devices), TR-4.1 (Implement local storage solutions to save downloaded puzzles)
+  "DATABASE_URL": "postgres://prod_user:prod_password@prod-db-server:5432/toddler_puzzle_db",
+
+  // JWT_SECRET: Secret key used for signing JWT tokens in production
+  // Relevant Requirements: TR-5.1 (Develop a secure authentication system for parents to access control settings), TR-11.1 (Implement efficient memory management techniques to prevent leaks and crashes)
+  "JWT_SECRET": "your_production_jwt_secret",
+
+  // AI_IMAGE_API_KEY: API key for accessing the AI image generation service (DALL-E API)
+  // Relevant Requirements: TR-2.1 (Establish a reliable connection with the DALL-E API for image generation)
+  "AI_IMAGE_API_KEY": "your_production_ai_image_api_key",
+
+  // STRIPE_API_KEY: API key for Stripe to process one-time payments securely
+  // Relevant Requirements: TR-3.1 (Integrate with Stripe for processing one-time payments), TR-3.2 (Securely store and manage payment tokens to comply with PCI-DSS standards)
+  "STRIPE_API_KEY": "your_production_stripe_api_key"
+}
