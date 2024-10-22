@@ -1,0 +1,145 @@
+# CI workflow for the Toddler Puzzle App
+# Automates the build, test, and deployment processes using GitHub Actions
+# Requirements Addressed:
+# - Continuous Integration Setup
+#   - Location: Technical Specification/Development Practices/CI/CD
+#   - Description: Automate the build, test, and deployment processes to ensure code quality and facilitate rapid development cycles.
+
+name: CI
+
+# Triggers the workflow on push and pull_request events to the 'main' and 'develop' branches
+# Referenced in 'triggers' section of the assigned specification
+on:
+  push:
+    branches: ['main', 'develop']
+  pull_request:
+    branches: ['main', 'develop']
+
+jobs:
+  build:
+    name: Build Application
+    runs-on: ubuntu-latest
+    # Job 'build' builds the application using Node.js and installs dependencies
+    # Steps outlined in the assigned specification under 'build' job
+    steps:
+      - name: Checkout repository code
+        uses: actions/checkout@v3
+        # Uses GitHub Actions checkout action (version v3) to retrieve code
+        # External dependency: GitHub Actions (module: actions, version: latest)
+      
+      - name: Set up Node.js environment
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16.x'
+        # Sets up Node.js version 16.x environment
+        # External dependency: Node.js (module: node, version: 16.x)
+        # Node.js used to run JavaScript and TypeScript scripts during the CI process
+      
+      - name: Install dependencies - Web Application
+        working-directory: src/web
+        run: npm install
+        # Installs npm packages for the web application
+        # Internal dependency: 'package.json' at 'src/web/package.json'
+        # Defines scripts and dependencies for the web application
+      
+      - name: Install dependencies - Backend Services
+        working-directory: src/backend
+        run: npm install
+        # Installs npm packages for the backend services
+        # Internal dependency: 'package.json' at 'src/backend/package.json'
+        # Defines scripts and dependencies for the backend services
+      
+      - name: Run linting and formatting checks - Web Application
+        working-directory: src/web
+        run: |
+          npm run lint
+          npm run format
+        # Runs linting and formatting for the web application
+        # Ensures code quality as per TR-11 in Technical Requirements: Performance Optimization
+      
+      - name: Run linting and formatting checks - Backend Services
+        working-directory: src/backend
+        run: |
+          npm run lint
+          npm run format
+        # Runs linting and formatting for the backend services
+        # Maintains code standards and quality
+      
+      - name: Build Web Application
+        working-directory: src/web
+        run: npm run build
+        # Builds the web application for deployment
+        # Part of 'build' steps in the assigned specification
+      
+      - name: Build Backend Services
+        working-directory: src/backend
+        run: npm run build
+        # Builds the backend services for deployment
+
+  test:
+    name: Test Application
+    runs-on: ubuntu-latest
+    needs: build
+    # Job 'test' runs tests for both web and backend applications using Jest
+    # Dependent on successful completion of 'build' job
+    steps:
+      - name: Checkout repository code
+        uses: actions/checkout@v3
+        # Retrieves the latest code for testing
+      
+      - name: Set up Node.js environment
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16.x'
+        # Sets up Node.js version 16.x environment
+      
+      - name: Install dependencies - Web Application
+        working-directory: src/web
+        run: npm install
+        # Installs npm packages required for testing the web application
+      
+      - name: Install dependencies - Backend Services
+        working-directory: src/backend
+        run: npm install
+        # Installs npm packages required for testing the backend services
+      
+      - name: Run tests - Web Application
+        working-directory: src/web
+        run: npm run test
+        # Executes tests for the web application using Jest
+        # Internal dependency: 'jest.config.js' at 'src/web/jest.config.js'
+        # Configures Jest for testing the web application
+      
+      - name: Run tests - Backend Services
+        working-directory: src/backend
+        run: npm run test
+        # Executes tests for the backend services using Jest
+        # Internal dependency: 'jest.config.js' at 'src/backend/jest.config.js'
+        # Configures Jest for testing the backend services
+
+  deploy:
+    name: Deploy Infrastructure
+    runs-on: ubuntu-latest
+    needs: test
+    # Job 'deploy' deploys the application infrastructure using Terraform
+    # Dependent on successful completion of 'test' job
+    steps:
+      - name: Checkout repository code
+        uses: actions/checkout@v3
+        # Retrieves code necessary for deployment
+      
+      - name: Set up Terraform environment
+        uses: hashicorp/setup-terraform@v2
+        # Sets up Terraform CLI environment
+        # External dependency: Terraform (module: terraform, version: >= 0.12)
+        # Manages infrastructure as code for deployment and provisioning
+      
+      - name: Deploy Infrastructure using deploy.sh script
+        working-directory: infrastructure/scripts
+        run: bash deploy.sh
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        # Executes 'deploy.sh' script to automate deployment
+        # Internal dependency: 'deploy.sh' at 'infrastructure/scripts/deploy.sh'
+        # Automates the deployment of infrastructure using Terraform
