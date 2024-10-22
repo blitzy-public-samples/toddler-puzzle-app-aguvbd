@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    File: AndroidManifest.xml
+    Description: The AndroidManifest.xml file is a critical component of the Toddler Puzzle App's Android version. It declares essential information about the app to the Android system, including the app's components, permissions, and hardware requirements.
+    Requirements Addressed:
+    - User Interface (TR-6): Ensuring an intuitive and visually appealing user interface tailored for toddlers.
+      Location: Technical Requirements/Feature 6: User Interface
+    - Offline Playability (TR-4): Enabling access to puzzles without requiring an active internet connection.
+      Location: Technical Requirements/Feature 4: Offline Playability
+-->
+
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.toddlerpuzzleapp">
+
+    <!-- Permissions -->
+    <!-- Allows the app to access the internet for downloading puzzles and updates.
+         Requirement: TR-4.1 - Implement local storage solutions to save downloaded puzzles.
+         Location: Technical Requirements/Feature 4: Offline Playability -->
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <!-- Allows the app to check network connectivity status.
+         Requirement: TR-4.4 - Detect offline status and adjust app functionality.
+         Location: Technical Requirements/Feature 4: Offline Playability -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <!-- Features -->
+    <!-- Specifies that the app is designed to operate in portrait mode.
+         Requirement: TR-6.1 - Utilize responsive design principles for various screen sizes.
+         Location: Technical Requirements/Feature 6: User Interface -->
+    <uses-feature android:name="android.hardware.screen.portrait" android:required="true" />
+
+    <!-- Application Definition -->
+    <application
+        android:name=".MainApplication"
+        android:label="@string/app_name"
+        android:icon="@mipmap/ic_launcher"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:allowBackup="true"
+        android:theme="@style/AppTheme">
+
+        <!-- Main Activity -->
+        <!-- Declared as the main entry point of the app, handling the primary user interface.
+             Requirement: TR-6.2 - Implement large, easily tappable buttons and icons.
+             Location: Technical Requirements/Feature 6: User Interface -->
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait">
+
+            <!-- Intent Filters -->
+            <!-- Defines this activity as the entry point when launching the app from the device's launcher.
+                 Requirement: Ensures the app starts correctly.
+                 Location: Android Development Best Practices -->
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- Splash Screen -->
+        <!-- Defines the splash screen layout displayed during app startup.
+             Purpose: Enhances user experience with engaging visuals during app launch.
+             Requirement: TR-6.4 - Ensure smooth transitions and animations.
+             Location: Technical Requirements/Feature 6: User Interface -->
+        <!-- Activity for Splash Screen (if applicable) can be declared here -->
+
+    </application>
+
+</manifest>
