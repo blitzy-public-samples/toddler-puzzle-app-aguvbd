@@ -1,0 +1,66 @@
+{
+  /*
+    Default configuration settings for the backend server of the Toddler Puzzle App.
+    Provides baseline settings that can be overridden by environment-specific configurations.
+
+    Requirements Addressed:
+    - Provides baseline configuration settings for database connections, server ports, and secure keys.
+      (Location: SYSTEM ARCHITECTURE/Backend Server)
+  */
+
+  "PORT": 3000,
+  /*
+    Port number on which the backend server will listen.
+    Requirement Addressed:
+    - TR-4.4: Develop mechanisms to detect offline status and adjust app functionality accordingly.
+      (Ensures the server operates on the standard development port for consistent behavior during development and offline status handling.)
+  */
+
+  "DATABASE_URL": "postgres://dev_user:dev_password@localhost:5432/toddler_puzzle_db",
+  /*
+    Connection string for the development PostgreSQL database.
+    Requirement Addressed:
+    - TR-10.1: Implement cloud-based storage solutions to save user progress and purchase history.
+      (Facilitates connection to the PostgreSQL database server for data storage and retrieval.)
+  */
+
+  "JWT_SECRET": "your_default_jwt_secret",
+  /*
+    Secret key used for signing JSON Web Tokens for authentication.
+    Requirement Addressed:
+    - TR-5.1: Develop a secure authentication system for parents to access control settings.
+      (Ensures JWT tokens are securely signed and verified for user authentication.)
+  */
+
+  "AI_IMAGE_API_KEY": "your_default_ai_image_api_key"
+  /*
+    API key for accessing the AI Image Generation service (e.g., DALL-E API).
+    Requirement Addressed:
+    - TR-2.1: Establish a reliable connection with the DALL-E API for image generation.
+      (Allows the backend to authenticate requests to the AI image service.)
+  */
+
+  /*
+    Internal Dependencies:
+    - Logger:
+      Module: src/backend/src/utils/Logger.ts
+      Purpose: To configure logging settings and levels.
+      Requirement Addressed:
+      - TR-11.1: Implement efficient memory management techniques to prevent leaks and crashes.
+        (Proper logging helps monitor application performance and identify memory issues.)
+
+    - Validator:
+      Module: src/backend/src/utils/Validator.ts
+      Purpose: To ensure data validation settings are consistent.
+      Requirement Addressed:
+      - TR-2.3: Develop a content moderation pipeline to filter and approve images before use.
+        (Validation ensures data integrity for content moderation processes.)
+
+    - ResponseHelper:
+      Module: src/backend/src/utils/ResponseHelper.ts
+      Purpose: To ensure response formatting settings are consistent.
+      Requirement Addressed:
+      - TR-5.5: Implement functionality to reset the app to its original state upon parent’s request.
+        (Consistent response formatting aids in reliable client-server communication.)
+  */
+}
