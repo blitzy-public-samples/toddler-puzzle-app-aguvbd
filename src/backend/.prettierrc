@@ -1,0 +1,18 @@
+{
+  // Prettier configuration file for the backend services of the Toddler Puzzle App
+  // Prettier version: 2.x (as per 'prettier' module dependency)
+
+  // Requirement Addressed:
+  // Name: 'Code Formatting Consistency'
+  // Location: 'Technical Specification/Development Practices/Code Quality'
+  // Description: Ensure that the code adheres to defined formatting rules for readability and maintainability.
+
+  "printWidth": 80,          // Limit lines to 80 characters to improve readability and maintainability.
+  "tabWidth": 2,             // Use 2 spaces per indentation level for consistent code indentation.
+  "useTabs": false,          // Indent lines with spaces instead of tabs to avoid differences in environments.
+  "semi": true,              // End statements with semicolons to prevent potential runtime errors.
+  "singleQuote": true,       // Use single quotes for strings to maintain consistency across the codebase.
+  "trailingComma": "es5",    // Include trailing commas where valid in ES5 (objects, arrays, etc.) for cleaner diffs.
+  "bracketSpacing": true,    // Include spaces between brackets in object literals for enhanced readability.
+  "arrowParens": "avoid"     // Omit parentheses when arrow functions have a single parameter for cleaner syntax.
+}
