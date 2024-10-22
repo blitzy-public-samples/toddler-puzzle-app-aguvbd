@@ -1,0 +1,19 @@
+{
+  "name": "toddler-puzzle-admin-interface",
+  "version": "1.0.0",
+  "description": "This file defines the dependencies, scripts, and configuration settings for the admin interface of the Toddler Puzzle App. It is crucial for managing the build and development environment, ensuring all necessary libraries and tools are available.",
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "dependencies": {
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
+    "styled-components": "5.3.3",
+    "react-router-dom": "5.2.0",
+    "axios": "0.21.1",
+    "winston": "3.3.3"
+  }
+}
