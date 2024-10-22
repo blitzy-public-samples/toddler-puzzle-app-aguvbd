@@ -1,0 +1,94 @@
+// File: src/web/android/app/build.gradle
+// Description: Module-level Gradle build script for the Android application.
+// This file defines specific configurations for the Android app module, including dependencies, build types, and Android-specific settings.
+
+// Requirements Addressed:
+// - Android App Module Configuration
+//   Location: Technical Specification/Development Practices/Android
+//   Description: Ensure that the Android app module is configured correctly for building, including dependencies, SDK versions, and build types.
+
+plugins {
+    id 'com.android.application'             // Apply the Android Application plugin
+    id 'kotlin-android'                      // Apply the Kotlin Android plugin for Kotlin support
+}
+
+android {
+    compileSdkVersion 30                     // Set the SDK version to compile the app (Technical Specification/TR-1.1)
+    buildToolsVersion '30.0.3'               // Specify the build tools version
+
+    defaultConfig {
+        applicationId "com.toddlerpuzzleapp" // Unique application ID
+        minSdkVersion 21                     // Minimum SDK version supported
+        targetSdkVersion 30                  // Target SDK version for optimization
+        versionCode 1                        // Version code incremented for each release
+        versionName "1.0"                    // User-visible version name
+
+        // Requirements Addressed:
+        // - Feature 6: User Interface
+        //   TR-6.1: Utilize responsive design principles to ensure compatibility across various device screen sizes.
+        //   Location: Technical Specification/TR-6
+
+        // - Feature 4: Offline Playability
+        //   TR-4.1: Implement local storage solutions to save downloaded puzzles.
+        //   Location: Technical Specification/TR-4
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false              // Disable code minification for easier debugging
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            // Requirements Addressed:
+            // - Feature 11: Performance Optimization
+            //   TR-11.1: Implement efficient memory management techniques to prevent leaks and crashes.
+            //   Location: Technical Specification/TR-11
+        }
+    }
+
+    // Requirements Addressed:
+    // - Feature 1: Puzzle Difficulty Levels
+    //   TR-1.2: Ensure the UI dynamically adjusts puzzle layouts based on difficulty level.
+    //   Location: Technical Specification/TR-1
+}
+
+dependencies {
+    // Internal dependencies
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+
+    // External dependencies
+    implementation 'org.jetbrains.kotlin:kotlin-stdlib:1.5.0'          // Kotlin Standard Library (Version 1.5.0)
+    implementation 'androidx.core:core-ktx:1.6.0'                      // Android KTX extensions for easier Android development
+    implementation 'androidx.appcompat:appcompat:1.3.1'                // AppCompat library for backward compatibility
+    implementation 'com.google.android.material:material:1.4.0'        // Material Design components
+
+    // Requirements Addressed:
+    // - Feature 2: AI-Generated Images
+    //   TR-2.1: Establish a reliable connection with the DALL-E API for image generation.
+    //   Location: Technical Specification/TR-2
+    // Note: Add the necessary dependencies for AI integration when implementing the feature.
+
+    // - Feature 3: One-Time Payment Model
+    //   TR-3.1: Integrate with Stripe (or equivalent) for processing one-time payments.
+    //   Location: Technical Specification/TR-3
+    // implementation 'com.stripe:stripe-android:16.10.0'               // Stripe SDK for Android (Version as a comment near the import)
+
+    // - Feature 5: Parental Controls
+    //   TR-5.2: Implement UI components for setting usage limits and managing app settings.
+    //   Location: Technical Specification/TR-5
+    // Add dependencies related to Parental Control features if necessary.
+
+    // - Feature 9: Notifications
+    //   TR-9.1: Integrate push notification services to deliver timely updates to parents.
+    //   Location: Technical Specification/TR-9
+    // implementation 'com.google.firebase:firebase-messaging:22.0.0'   // Firebase Messaging for push notifications
+}
+
+// Including configurations from internal dependencies:
+// - Project-level build.gradle: Defines shared configurations (src/web/android/build.gradle)
+// - gradle.properties: Contains properties affecting the build process (src/web/android/gradle.properties)
+// - settings.gradle: Includes module settings that affect build configuration (src/web/android/settings.gradle)
+// - AndroidManifest.xml: Essential app information for the Android system (src/web/android/app/src/main/AndroidManifest.xml)
+// - strings.xml: String resources for application name and permissions (src/web/android/app/src/main/res/values/strings.xml)
+
+// Note:
+// Ensure all configurations align with the Technical Specifications and Requirements outlined in the documentation.
+// Additional dependencies and configurations should be added as features are implemented.
