@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Info.plist
+    Toddler Puzzle App
+
+    This file defines the app's settings and metadata required by iOS.
+
+    Requirements Addressed:
+    - User Interface (Technical Specification/Feature 6: User Interface):
+      Ensures the app initializes with the correct UI settings and configurations for a seamless user experience.
+
+    Dependencies:
+    - UIKit (version: latest): Provides the necessary interfaces for building and managing the app's UI.
+    - Foundation (version: latest): Provides essential data types, collections, and operating-system services.
+
+    Assets:
+    - CustomFont.ttf: To provide a unique and consistent typography style across the app's user interface.
+-->
+
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <!-- Application Bundle Identifier -->
+    <!-- Uniquely identifies the app. -->
+    <key>CFBundleIdentifier</key>
+    <string>com.toddlerpuzzleapp</string>
+
+    <!-- Application Version -->
+    <!-- Specifies the build version number of the app. -->
+    <key>CFBundleVersion</key>
+    <string>1.0</string>
+
+    <!-- Application Short Version String -->
+    <!-- Specifies the release version number of the app. -->
+    <key>CFBundleShortVersionString</key>
+    <string>1.0</string>
+
+    <!-- Launch Storyboard Name -->
+    <!-- Specifies the storyboard to use for the app's launch screen. -->
+    <key>UILaunchStoryboardName</key>
+    <string>LaunchScreen</string>
+
+    <!-- Required Device Capabilities -->
+    <!-- Indicates the hardware features required for the app to run. -->
+    <key>UIRequiredDeviceCapabilities</key>
+    <array>
+        <string>armv7</string>
+    </array>
+
+    <!-- Supported Interface Orientations -->
+    <!-- Specifies the orientations supported by the app. -->
+    <key>UISupportedInterfaceOrientations</key>
+    <array>
+        <string>UIInterfaceOrientationPortrait</string>
+        <string>UIInterfaceOrientationLandscapeLeft</string>
+        <string>UIInterfaceOrientationLandscapeRight</string>
+    </array>
+
+    <!-- Custom Fonts -->
+    <!-- Includes custom fonts used in the app. Related to Asset: CustomFont.ttf -->
+    <key>UIAppFonts</key>
+    <array>
+        <string>CustomFont.ttf</string>
+    </array>
+</dict>
+</plist>
