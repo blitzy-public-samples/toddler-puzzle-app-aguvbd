@@ -1,0 +1,16 @@
+// settings.gradle
+// Requirement Addressed: Android Project Configuration
+// Location: Technical Specification/Development Practices/Android
+// Description: Ensure that the Android project is configured correctly for building, including module inclusion and project-level settings.
+
+// Include the 'app' module in the Gradle build
+include ':app'
+
+// Dependency: project-level build.gradle (src/web/android/build.gradle)
+// Purpose: Defines configurations shared across all modules, including repositories and global dependencies.
+
+// Dependency: module-level build.gradle (src/web/android/app/build.gradle)
+// Purpose: Defines specific configurations for the Android app module.
+
+// Dependency: gradle.properties (src/web/android/gradle.properties)
+// Purpose: Contains properties that affect the build process, such as version codes and custom flags.
