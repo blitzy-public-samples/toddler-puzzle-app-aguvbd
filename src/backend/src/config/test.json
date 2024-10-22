@@ -1,0 +1,35 @@
+{
+  // This file contains the test-specific configuration settings for the backend server of the Toddler Puzzle App.
+  // It is used to configure the environment for running tests, ensuring that the app behaves correctly under test conditions.
+
+  // Requirements Addressed:
+  // - "Test Configuration"
+  //   - Location: SYSTEM ARCHITECTURE/Backend Server
+  //   - Description: Provides test-specific settings for database connections, server ports, and secure keys to facilitate testing.
+  //   - Relevant Sections: Technical Requirements -> Feature 2: AI-Generated Images (TR-2.1, TR-2.5), Feature 11: Performance Optimization (TR-11.2, TR-11.3)
+
+  // Dependencies:
+  // - Extends baseline configuration from 'default.json' to override or extend settings specific for testing.
+  //   - Internal Dependency: src/backend/src/config/default.json
+  //   - Purpose: Provides baseline configuration settings that are overridden or extended for testing.
+
+  // PORT: The server port number used during testing.
+  // Overrides the default port to avoid conflicts with other environments.
+  // Related Requirements: TR-1.3 (Optimize performance to prevent lag)
+  "PORT": 3001,
+
+  // DATABASE_URL: Connection string for the test database.
+  // Ensures that tests run against a separate test database to prevent data corruption.
+  // Related Requirements: TR-1.4 (Implement validation to ensure correct data handling), TR-10.1 (Implement cloud-based storage solutions)
+  "DATABASE_URL": "postgres://test_user:test_password@localhost:5432/toddler_puzzle_test_db",
+
+  // JWT_SECRET: Secret key for JWT authentication in the testing environment.
+  // Should be different from development and production secrets for security purposes.
+  // Related Requirements: TR-5.6 (Ensure parental control settings are encrypted), Security Considerations (Authentication and Authorization)
+  "JWT_SECRET": "your_test_jwt_secret",
+
+  // AI_IMAGE_API_KEY: API key for the AI image generation service during tests.
+  // Allows testing of AI integration without using production keys.
+  // Related Requirements: TR-2.1 (Establish a reliable connection with the DALL-E API), TR-2.5 (Handle API rate limiting and retries)
+  "AI_IMAGE_API_KEY": "your_test_ai_image_api_key"
+}
